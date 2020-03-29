@@ -5,7 +5,6 @@ int EnterGrade()
 {
 	int grabGrade; /* float */
 
-
 		printf( "\nEnter grade" );
 		scanf( "%d" , &grabGrade );
 
@@ -61,7 +60,7 @@ void showHighest( int grade1 , int grade2 , int grade3 )
 
 /*********************FUNCTION 4************************/
 void showLowest( int grade1 , int grade2 , int grade3 )
-{	
+{
 	if( grade1 < grade2 )
 		if( grade1 < grade3 )
 			printf( "\nLowest Grade is %d" , grade1 );
