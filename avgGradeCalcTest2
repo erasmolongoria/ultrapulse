@@ -1,0 +1,126 @@
+#include<stdio.h>
+#include<stdlib.h>
+/*********************FUNCTION 1**********************/
+int EnterGrade()
+{
+	int grabGrade; /* float */
+
+
+		printf( "\nEnter grade" );
+		scanf( "%d" , &grabGrade );
+
+		if( grabGrade >= 0 && grabGrade <= 100)
+		{
+  			return grabGrade;
+		}
+
+	printf( "\nInvalid Grade enter again" );
+}
+
+/*********************FUNCTION 2************************/
+void calculateAverage( int grade1 , int grade2 , int grade3 )
+{
+	float avg;
+
+	avg = ( grade1 + grade2 + grade3 ) / 3;
+
+	printf( "\n%f\n" , avg );
+
+	if( avg >= 90 )
+		printf( "\n Letter Grade A\n" );
+
+	else if( avg >= 80 )
+  		printf( "\n Letter Grade B\n" );
+
+	else if( avg >= 70 )
+		printf( "\n Letter Grade C\n" );
+
+	else if( avg >= 60 )
+		printf( "\n Letter Grade D\n" );
+
+	else
+		printf( "\n Letter Grade F\n" );
+}
+
+/*********************FUNCTION 3************************/
+void showHighest( int grade1 , int grade2 , int grade3 )
+{
+	if( grade1 > grade2 )
+		if( grade1 > grade3 )
+			printf( "\nhighest grade is %d" , grade1 );
+
+	else
+		printf( "\nhighest grade is %d" , grade3 );
+
+	else
+		if( grade2 > grade3 )
+			printf( "\nhighest grade is %d" ,grade2 );
+		else
+			printf( "\nhighest grade is %d" ,grade3 );
+}
+
+/*********************FUNCTION 4************************/
+void showLowest( int grade1 , int grade2 , int grade3 )
+{	
+	if( grade1 < grade2 )
+		if( grade1 < grade3 )
+			printf( "\nLowest Grade is %d" , grade1 );
+
+		else
+			printf( "\nLowest Grade is %d" , grade3 );
+
+	else if( grade2 < grade3 )
+		printf( "\nLowest Grade is %d" , grade2 );
+
+	else
+		printf( "\nLowest Grade is %d" , grade3 );
+}
+
+/*********************FUNCTION 5************************/
+int main()
+{
+	int choice, grade1, grade2, grade3;
+	grade1 = rand()%100;
+	grade2 = rand()%100;
+	grade3 = rand()%100;
+	choice = 1;
+
+	while(choice)
+		{
+		printf( "\nSelect from the below chices\n" );
+		printf( "\n1. Enter 3 grades" );
+		printf( "\n2. Show average (with the 3 grades) and letter grade" );
+		printf( "\n3. Show highest grade" );
+		printf( "\n4. Show lowest grade" );
+		printf( "\n5. Exit\n:" );
+		
+		scanf( "%d" , &choice );
+
+		switch( choice )
+		{
+		case 1:
+		    grade1=EnterGrade();
+			grade2=EnterGrade();
+			grade3=EnterGrade();
+			break;
+
+		case 2:
+		    calculateAverage( grade1 , grade2 , grade3 );
+			break;
+
+		case 3:
+		    showHighest( grade1 , grade2 , grade3 );
+			break;
+
+		case 4:
+		    showLowest( grade1 , grade2 , grade3 );
+			break;
+
+		case 5:
+		    choice = 0;
+			break;
+
+		default: printf("\nInvalid choice Choose again\n");
+		}
+	}
+}
